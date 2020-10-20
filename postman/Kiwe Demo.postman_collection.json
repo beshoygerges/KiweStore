@@ -1,0 +1,392 @@
+{
+	"info": {
+		"_postman_id": "4f874078-3421-4a84-a98b-c5fc9cdca4ee",
+		"name": "Kiwe Demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"beshoy\",\r\n    \"lastName\": \"yacoub\",\r\n    \"email\": \"beshoy@g.com\",\r\n    \"username\": \"beshoy gerges\",\r\n    \"password\": \"12345678\",\r\n    \"age\": 18\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/rest/v1/users/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"rest",
+								"v1",
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\": \"beshoy@g.com\",\r\n    \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/rest/v1/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"rest",
+								"v1",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiZXNob3kgZ2VyZ2VzIiwiZXhwIjoxNjAzMTg1NzMwLCJpYXQiOjE2MDMxODQ4MzAsImp0aSI6ImY1MjljMGMzLTlkM2UtNGE2Zi1hOGQwLTQxYTQzNDQxMDE2OSJ9.u1urbNf6lxOmdOwexcNVCcXGnOaPq1sXoxCQE2JG4AQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"oldPassword\": \"12345678\",\r\n    \"newPassword\": \"123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/rest/v1/users/1/changePassword",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"rest",
+								"v1",
+								"users",
+								"1",
+								"changePassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forget Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"beshoy@g.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/rest/v1/users/forgetPassword",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"rest",
+								"v1",
+								"users",
+								"forgetPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"beshoy@g.com\",\r\n    \"token\": \"b77f5253-7d62-4b12-91fc-a9cdb4fdd35e\",\r\n    \"password\": \"123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/rest/v1/users/resetPassword",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"rest",
+								"v1",
+								"users",
+								"resetPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiZXNob3kgZ2VyZ2VzIiwiZXhwIjoxNjAzMTg2Mzg2LCJpYXQiOjE2MDMxODU0ODYsImp0aSI6IjAwNjJiM2NlLTRmOTktNGJkYi04NzI4LTFlODVhMjIwMmZlNiJ9.n7-ua3fvOytuLEY4ZbBJ7G-DEij5qezKIIu5pBLdf8U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8088/rest/v1/users/1/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"rest",
+								"v1",
+								"users",
+								"1",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Add Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiZXNob3kgZ2VyZ2VzIiwiZXhwIjoxNjAzMjMzNDEyLCJpYXQiOjE2MDMyMzI1MTIsImp0aSI6IjMyY2U5ZmI4LTg3MmUtNDZhZi04YjAzLTE5YTFkYWRhMDY4MiJ9.S05AKI2t4FYuZr0i2QyFc-hnaoyJd8PLiYGoHjpQpl0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "product 2",
+									"type": "text"
+								},
+								{
+									"key": "files",
+									"type": "file",
+									"src": [
+										"/C:/Users/Admin/Desktop/1_Vm4d5U8ZCx8VnxdPyELY1Q.png",
+										"/C:/Users/Admin/Desktop/ِِASC.ALAHLYSC.png",
+										"/C:/Users/Admin/Desktop/مصر..-القبض-على-المتهمين-بسرقة-رئيس-النادي-الأهلي.jpg",
+										"/C:/Users/Admin/Desktop/download.jpg"
+									]
+								},
+								{
+									"key": "quantity",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "sports",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8088/rest/v1/users/1/products",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"rest",
+								"v1",
+								"users",
+								"1",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiZXNob3kgZ2VyZ2VzIiwiZXhwIjoxNjAzMjMzNDEyLCJpYXQiOjE2MDMyMzI1MTIsImp0aSI6IjMyY2U5ZmI4LTg3MmUtNDZhZi04YjAzLTE5YTFkYWRhMDY4MiJ9.S05AKI2t4FYuZr0i2QyFc-hnaoyJd8PLiYGoHjpQpl0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8088/rest/v1/users/1/products/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"rest",
+								"v1",
+								"users",
+								"1",
+								"products",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiZXNob3kgZ2VyZ2VzIiwiZXhwIjoxNjAzMjMzNDEyLCJpYXQiOjE2MDMyMzI1MTIsImp0aSI6IjMyY2U5ZmI4LTg3MmUtNDZhZi04YjAzLTE5YTFkYWRhMDY4MiJ9.S05AKI2t4FYuZr0i2QyFc-hnaoyJd8PLiYGoHjpQpl0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8088/rest/v1/users/1/products",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"rest",
+								"v1",
+								"users",
+								"1",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter Prodcuts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJiZXNob3kgZ2VyZ2VzIiwiZXhwIjoxNjAzMjMzNDEyLCJpYXQiOjE2MDMyMzI1MTIsImp0aSI6IjMyY2U5ZmI4LTg3MmUtNDZhZi04YjAzLTE5YTFkYWRhMDY4MiJ9.S05AKI2t4FYuZr0i2QyFc-hnaoyJd8PLiYGoHjpQpl0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8088/rest/v1/users/1/products?name=Product 1",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"rest",
+								"v1",
+								"users",
+								"1",
+								"products"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Product 1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
