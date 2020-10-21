@@ -7,4 +7,4 @@ before_install:
   - docker pull openjdk:8-jdk-alpine
 script:
   - ./mvnw clean install
-  - ./mvnw deploy jib:build -P deploy-docker
+  - ./mvnw heroku:deploy jib:build -P deploy-heroku,deploy-docker
